@@ -40,7 +40,12 @@
             <article>
                 <h3>Where To Put The Code</h3>
                 <p>JavaScript can be placed in <code>&lt;script&gt;</code> tags in HTML or in external <code>.js</code> files.</p>
-                <pre><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+                <pre><code>&lt;header&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;                   
+&lt;/header&gt;
+&lt;body&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
             </article>
 
             <!-- Comments -->
@@ -56,7 +61,9 @@
             <article>
                 <h3>Output To Screen</h3>
                 <p>Use <code>document.write()</code>, <code>alert()</code>, or <code>console.log()</code> to output data.</p>
-                <pre><code>document.write("Hello, World!");</code></pre>
+                <pre><code>window.alert("This is an alert");
+document.write("Hello, World!");
+console.log("Hello, World!");</code></pre>
             </article>
 
             <!-- Console Methods And Styling -->
@@ -77,29 +84,38 @@
             <article>
                 <h3>Data Types And typeof Operator</h3>
                 <p>JavaScript has primitive data types like <code>string</code>, <code>number</code>, <code>boolean</code>, and <code>object</code>. Use <code>typeof</code> to check the type.</p>
-                <pre><code>console.log(typeof "Hello"); // "string"</code></pre>
+                <pre><code>console.log(typeof "Hello"); // "string"
+console.log(typeof 42); // "number"
+console.log(typeof true); // "boolean"
+console.log(typeof { name: "Saja" }); // Array => "object"
+console.log(typeof undefined); // "undefined"
+console.log(typeof null); // "object"
+console.log(typeof BigInt("9999999999999999")); // "bigint"
+console.log(typeof Symbol()); // "symbol"</code></pre>
             </article>
 
             <!-- Variables Introduction -->
             <article>
                 <h3>Variables Introduction</h3>
                 <p>Variables store data. Use <code>var</code>, <code>let</code>, or <code>const</code> to declare them.</p>
-                <pre><code>let name = "John";</code></pre>
+                <pre><code>  keyword  variableName  assignmentOperator  VariableValue;
+    let         name              =              "Saja"   ;</code></pre>
             </article>
 
             <!-- Identifiers Name Conventions And Rules -->
             <article>
                 <h3>Identifiers Name Conventions And Rules</h3>
-                <p>Variable names must start with a letter, <code>_</code>, or <code>$</code>. Use camelCase for naming.</p>
-                <pre><code>let userName = "JohnDoe";</code></pre>
+                <p>Variable names can starting with a letter, <code>_</code>, or <code>$</code>. Use camelCase for naming.</p>
+                <pre><code>let userName = "SajaMalek";</code></pre>
             </article>
 
             <!-- Var, Let, Const Compare -->
             <article>
                 <h3>Var, Let, Const Compare</h3>
                 <p><code>var</code> is function-scoped, <code>let</code> and <code>const</code> are block-scoped. <code>const</code> cannot be reassigned.</p>
-                <pre><code>let x = 10;
-const y = 20;</code></pre>
+                <pre><code>var x = 10;
+let y = 20;
+const z = 30;</code></pre>
             </article>
 
             <!-- String Syntax And Character Escape Sequences -->
@@ -113,24 +129,45 @@ const y = 20;</code></pre>
             <article>
                 <h3>Concatenation</h3>
                 <p>Combine strings using the <code>+</code> operator.</p>
-                <pre><code>let fullName = "John" + " " + "Doe";</code></pre>
+                <pre><code>let fullName = "Saja" + " " + "Malek";</code></pre>
             </article>
 
             <!-- Template Literals -->
             <article>
                 <h3>Template Literals (Template Strings)</h3>
                 <p>Use backticks (<code>``</code>) for template literals to embed expressions.</p>
-                <pre><code>let name = "John";
+                <pre><code>let name = "Saja";
 console.log(`Hello, ${name}!`);</code></pre>
             </article>
 
             <!-- Variables And Concatenation Challenge -->
             <article>
                 <h3>Variables And Concatenation Challenge</h3>
-                <p>Create a program that concatenates two variables and outputs the result.</p>
-                <pre><code>let firstName = "John";
-let lastName = "Doe";
-console.log(firstName + " " + lastName);</code></pre>
+                <pre class="challenge">
+                    [1] Create 3 Variables [Title, Description, Date]
+                    -- All In One Statement
+                    -- Variable Name Must Be Two Words
+                    -- Title Content Is "Elzero"
+                    -- Description Content Is "Elzero Web School"
+                    -- Date Content Is "25/10"
+                    [2] Create Variable Contains Div And This Div Contains
+                    -- H3 For Title
+                    -- P For Paragraph
+                    -- Span For Time
+                    [3] Add This Card To Page 4 Times ( You can use "Repeat" )
+                    [4] Use Template Literals For Concatenate
+                </pre>
+                <pre><code>let titleCont = "Elzero", pargrapghCont = "Elzero Web School", dateCont = "25/10";
+
+let card = `
+    &lt;div class="card"&gt;
+        &lt;h3&gt;Hello ${titleCont}&lt;/h3&gt;
+        &lt;p&gt;${pargrapghCont}&lt;/p&gt;
+        &lt;span&gt;${dateCont}&lt;/span&gt;
+    &lt;/div&gt;
+`;
+
+document.write(card.repeat(4));</code></pre>
             </article>
 
             <!-- Arithmetic Operators -->
@@ -160,16 +197,87 @@ let neg = -num; // negates the value</code></pre>
                 <h3>Assignment Operators</h3>
                 <p>Use <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, and <code>/=</code> for assignments.</p>
                 <pre><code>let x = 10;
-x += 5; // x is now 15</code></pre>
+x += 5; // x is now 15 => x = x + 5</code></pre>
             </article>
 
             <!-- Operators Challenges -->
             <article>
                 <h3>Operators Challenges</h3>
-                <p>Solve problems using arithmetic and assignment operators.</p>
-                <pre><code>let a = 10;
-let b = 5;
-console.log(a * b); // 50</code></pre>
+                <pre class="challenge">
+                    /* Challenge 1 */
+                    let a = 10;
+                    let b = "20";
+                    let c = 80;
+                    
+                    console.log(++a + +b++ + +c++ - +a++);
+                    console.log(++a + -b + +c++ - -a++ + +a);
+                    console.log(--c + +b + --a * +b++ - +b * a + --a - +true);
+                    
+                    /*
+                        [++a] [+]
+                        [++a]
+                        - Value:
+                        - Explain:
+                        [+]
+                        - Explain:
+                    */
+                
+                
+                    /* Challenge 2 */
+                    let d = "-100";
+                    let e = "20"; 
+                    let f = 30; 
+                    let g = true;
+
+                    // Only Use Variables Value 
+                    // Do Not Use Variable Twice
+
+                    console.log(); // 2000
+                    console.log(); // 173</pre>
+                    <pre><code> /* Challenge 1 */
+    let a = 10;
+    let b = "20";
+    let c = 80;
+    console.log(++a + +b++ + +c++ - +a++);
+    /*
+        [++a]
+            Value = 11
+            Explain = pre-increment operator
+
+        [+] = "addition operater"
+
+        [+b++]
+            Value = 20;
+            Explain = first unary plus operator convert the value from string to number, 
+            then post-increment increase the value by 1 to be 21 but not used
+        
+        [+] = "addition operater"
+
+        [+c++]
+            Value = 80;
+            Explain = unary plus operator has not effect becuase the date type already number, 
+            then post-increment increase the value by 1 to be 81 but not used
+
+        [-] = subtraction operater
+
+        [+a++]
+            Value = 11;
+            Explain = Unary plus operator has not effect becuase the date type already number, 
+            then post-increment increase the value by 1 to be 12 but not used
+
+
+        so, the total value = 11 + 20 + 80 - 11 = 100
+
+    */
+
+
+    /*Challenge 2 */
+    let d = "-100";
+    let e = "20";
+    let f = 30;
+    let g = true;
+    console.log(-d * +e); //2000
+    console.log(++e * ++g + -d + ++f); //173</code></pre>
             </article>
         </section>
     </main>
